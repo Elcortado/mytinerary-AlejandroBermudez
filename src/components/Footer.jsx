@@ -2,7 +2,7 @@ import React from 'react'
 
 function Footer() {
   return (
-    <><div className="bg-slate-200 rounded-lg w-full p-8">
+    <><div className="bg-slate-200 w-full p-8">
     <div className="grid grid-rows-1 gap-8 md:grid-cols-12 xl:gap-8">
       <div className="md:col-span-12 xl:col-span-4 flex flex-col gap-4">
         <h1 className="text-3xl font-bold text-gray-900">My Tinerary</h1>
