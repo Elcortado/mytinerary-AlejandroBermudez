@@ -4,7 +4,7 @@ import Carousel from './Carousel'
 function Hero() {
   return (
     <>
-    <section className="relative  h-screen overflow-hidden flex flex-col ">
+    <section className="relative  h-full overflow-hidden flex flex-col ">
         <div className="z-20 max-w-5xl mx-auto">
             <h2 className="text-white my-6 text-2xl lg:text-3xl lg:my-8">Popular Mytinerari</h2>
         </div>
