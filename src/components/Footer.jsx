@@ -35,7 +35,7 @@ function Footer() {
       </nav>
     </div>
     <div className="md:col-span-4 xl:col-span-3">
-      <h2 className="font-bold mb-6 uppercase">Redes sociales</h2>
+      <h2 className="font-bold mb-6 uppercase">Social Network</h2>
       <nav className="flex flex-col gap-4">
         <a
           href="#"
@@ -77,7 +77,7 @@ function Footer() {
         </nav>
       </div>
       <div className="md:col-span-4 xl:col-span-3">
-      <h2 className="font-bold mb-6 uppercase">Contacto</h2>
+      <h2 className="font-bold mb-6 uppercase">Contact</h2>
       <div className="flex flex-col gap-4">
         <p className="flex items-center gap-2">
           <svg
@@ -142,22 +142,22 @@ function Footer() {
   <div className="flex flex-col xl:flex-row gap-4 items-center justify-between">
     <p className="text-gray-800 text-center md:text-left">
       &copy; 2023 
-      <span className="text-gray-900 font-bold"> My Tinerary.</span> Todos
-      los derechos reservados.
+      <span className="text-gray-900 font-bold"> My Tinerary.</span> All
+      rights reserved.
     </p>
     <div className="flex flex-col md:flex-row items-center gap-2">
       <a
         href="#"
         className="text-gray-700 hover:text-gray-900 transition-colors"
       >
-        Terminos y condiciones
+        Terms and Conditions
       </a>
       <span className="hidden md:flex">|</span>
       <a
         href="#"
         className="text-gray-700 hover:text-gray-900 transition-colors"
       >
-        Política de privacidad
+        Privacy Policy
       </a>
     </div>
   </div>
