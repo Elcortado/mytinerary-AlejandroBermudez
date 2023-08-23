@@ -29,7 +29,7 @@ const Carousel = () => {
     }, []);
 
     return (
-        <section className=" p-4 flex flex-col items-center">
+        <section className="flex flex-col items-center">
 
             <div className="flex justify-center w-4/6 min-h-[40vh]">
                 {Array.from({ length: Math.ceil(data.length / itemsSlide) }).map((_, slideIndex) => (
@@ -46,7 +46,7 @@ const Carousel = () => {
                                         className="w-full h-full object-cover rounded-lg"
                                     />
                                     <p className="bg-sky-800/30 text-center mt-2">
-                                        <span className="text-xl font-bold tracking-wide text-blue-950 hover:text-blue-600">{city.name}</span></p>
+                                        <span className="text-xl font-bold tracking-wide text-black hover:text-blue-600">{city.name}</span></p>
                                 </div>
                             ))}
                         </div>
