@@ -1,71 +1,40 @@
-import { useState, useEffect } from "react";
+import Arrows from "./Arrows"
+import CardDesign from "./CardDesign"
+import { useState } from "react"
 
-const data = [
-    { name: "Berlín - Germany", image: "public/assets/berlin.jpeg" },
-    { name: "Barcelona - Spain", image: "public/assets/barcelona.jpg" },
-    { name: "Budapest - Hungary", image: "public/assets/budapest.jpeg" },
-    { name: "Dubai - U.A.E.", image: "public/assets/dubai.jpeg" },
-    { name: "Hanoi - Vietnam", image: "public/assets/hanoi.jpeg" },
-    { name: "London - England", image: "public/assets/london.jpeg" },
-    { name: "Mexico DF - Mexico", image: "public/assets/mexico df.jpg" },
-    { name: "Moscow - Russia", image: "public/assets/moscu.jpeg" },
-    { name: "New York - USA", image: "public/assets/new york.jpg" },
-    { name: "Venice - Italy", image: "public/assets/venecia.jpeg" },
-    { name: "París - France", image: "public/assets/paris.jpg" },
-    { name: "Sao Paulo - Brazil", image: "public/assets/sao.jpeg" },
-]
 
-const itemsSlide = 4;
+export default function Carousel({ data }) {
+    console.log(data)
+    let [counter, setCounter] = useState(0)
+    let [counterTo, setCounterTo] = useState(4)
 
-const Carousel = () => {
-    const [currentSlide, setCurrentSlide] = useState(0);
+    function next_slide() {
+        if (data.length <= counterTo) {
+            setCounter(0)
+            setCounterTo(4)
+        } else {
+            setCounter(counter + 4)
+            setCounterTo(counterTo + 4)
+        }
+    }
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentSlide((prevSlide) => (prevSlide + 1) % Math.ceil(data.length / itemsSlide));
-        }, 4000);
-
-        return () => clearInterval(interval);
-    }, []);
+    function prev_slide() {
+        if (counter <= 0) {
+            setCounter(data.length - 4)
+            setCounterTo(data.length)
+        } else {
+            setCounter(counter - 4)
+            setCounterTo(counterTo - 4)
+        }
+    }
 
     return (
-        <section className="flex flex-col items-center">
-
-            <div className="flex justify-center w-4/6 min-h-[40vh]">
-                {Array.from({ length: Math.ceil(data.length / itemsSlide) }).map((_, slideIndex) => (
-                    <div
-                        key={slideIndex}
-                        className={`p-2 ${slideIndex === currentSlide ? 'block' : 'hidden'}`}
-                    >
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            {data.slice(slideIndex * itemsSlide, (slideIndex + 1) * itemsSlide).map((city, cityIndex) => (
-                                <div key={cityIndex} className="mb-4 flex flex-col items-center">
-                                    <img
-                                        src={city.image}
-                                        alt={city.name}
-                                        className="w-full h-full object-cover rounded-lg"
-                                    />
-                                    <p className="bg-sky-800/30 text-center mt-2">
-                                        <span className="text-xl font-bold tracking-wide text-black hover:text-blue-600">{city.name}</span></p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                ))}
+        <div className="flex w-full mt-4 justify-center items-center">
+            <Arrows direction="M18.75 19.5l-7.5-7.5 7.5-7.5m-6 15L5.25 12l7.5-7.5" onClick={prev_slide} />
+            <div className="flex w-full flex-wrap justify-center mt-5">
+                {data.slice(counter, counterTo).map(each => <CardDesign key={each._id} src={each.photo} alt={each.id} text={each.city} id={each._id} />)}
             </div>
-            <div className="dots flex justify-center mt-4">
-                {Array.from({ length: Math.ceil(data.length / itemsSlide) }).map((_, slideIndex) => (
-                    <span
-                        key={slideIndex}
-                        className={`dot inline-block w-2 h-2 rounded-full mx-1 ${slideIndex === currentSlide ? 'bg-white' : 'bg-white'
-                            }`}
-                        onClick={() => setCurrentSlide(slideIndex)}
-                    />
-                ))}
-            </div>
-        </section>
-    );
-};
-
-export default Carousel;
-
+            <Arrows direction="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5" onClick={next_slide} />
+        </div>
+    )
+}

@@ -1,21 +1,14 @@
-import { useState } from 'react'
-import './App.css'
-import Layout from './Layout/Layout'
-import Home from './components/Pages/Home'
-
-
-
-
+import { RouterProvider } from "react-router-dom"
+import router from "./router"
+import { Provider } from "react-redux"
+import store from "./store/store"
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-    <Layout>
-      <Home />
-    </Layout>
-    </>
+    <Provider store={store}>
+    <RouterProvider router={router} />
+    </Provider>
   )
 }
 

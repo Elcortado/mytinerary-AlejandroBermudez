@@ -1,164 +1,41 @@
-import React from 'react'
-
-function Footer() {
-  return (
-    <><div className="bg-slate-200 w-full p-8">
-      <div className="grid grid-rows-1 gap-8 md:grid-cols-12 xl:gap-8">
-        <div className="md:col-span-12 xl:col-span-4 flex flex-col gap-4">
-          <h1 className="text-3xl font-bold text-gray-900">My Tinerary</h1>
-          <p className="text-gray-600 text-justify">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur perspiciatis blanditiis veritatis fugit eaque, nostrum eligendi ad vitae, architecto vero ducimus aperiam tenetur tempore repellat. Dicta saepe dolore quis alias!
-          </p>
-        </div>
-        <div className="md:col-span-4 xl:col-span-2">
-          <h2 className="font-bold mb-6 uppercase">Menu</h2>
-          <nav className="flex flex-col gap-4">
-            <a href="#" className="hover:underline">
-              Home
-            </a>
-            <a href="#" className="hover:underline">
-              Services
-            </a>
-            <a href="#" className="hover:underline">
-              Blog
-            </a>
-            <a href="#" className="hover:underline">
-              Contact
-            </a>
-          </nav>
-        </div>
-        <div className="md:col-span-4 xl:col-span-3">
-          <h2 className="font-bold mb-6 uppercase">Social Network</h2>
-          <nav className="flex flex-col gap-4">
-            <a
-              href="#"
-              className="flex items-center gap-2 hover:bg-white p-2 rounded-lg transition-colors"
-
-            >
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
-                className="w-[20px] h-[20px]"
-                alt="facebook"
-              />
-              My Tinerary
-            </a>
-            <a
-              href="#"
-              className="flex items-center gap-2 hover:bg-white p-2 rounded-lg transition-colors"
-
-            >
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
-                className="w-[20px] h-[20px]"
-                alt="instagram"
-              />
-              My Tinerary
-            </a>
-            <a
-              href="#"
-              className="flex items-center gap-2 hover:bg-white p-2 rounded-lg transition-colors"
-
-            >
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/1384/1384065.png"
-                className="w-[20px] h-[20px]"
-                alt="twitter"
-              />
-              My Tinerary
-            </a>
-
-          </nav>
-        </div>
-        <div className="md:col-span-4 xl:col-span-3">
-          <h2 className="font-bold mb-6 uppercase">Contact</h2>
-          <div className="flex flex-col gap-4">
-            <p className="flex items-center gap-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                />
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                />
-              </svg>
-              Resistencia, Chaco.
-            </p>
-            <p className="flex items-center gap-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                />
-              </svg>
-              info@mytinerary.com
-            </p>
-            <p className="flex items-center gap-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
-                />
-              </svg>
-              (+54) 362 4444444
-            </p>
-          </div>
-        </div>
-      </div>
-      <hr className="my-4" />
-      <div className="flex flex-col xl:flex-row gap-4 items-center justify-between">
-        <p className="text-gray-800 text-center md:text-left">
-          &copy; 2023
-          <span className="text-gray-900 font-bold"> My Tinerary.</span> All
-          rights reserved.
-        </p>
-        <div className="flex flex-col md:flex-row items-center gap-2">
-          <a
-            href="#"
-            className="text-gray-700 hover:text-gray-900 transition-colors"
-          >
-            Terms and Conditions
-          </a>
-          <span className="hidden md:flex">|</span>
-          <a
-            href="#"
-            className="text-gray-700 hover:text-gray-900 transition-colors"
-          >
-            Privacy Policy
-          </a>
-        </div>
-      </div>
-    </div>
-    </>
+import Label from "./Label"
+import Display from "./Display"
+import Login from "./Login"
+import { useState } from "react"
 
 
-  )
+export default function Footer() {
+    let [show, setShow] = useState(false)
+    let options = [
+        { to: '/', title: 'Home' },
+        { to: '/cities', title: 'Cities' },
+        { to: '/signin', title: 'Login', icon: <Login />, backgroundColor: "#4F46E5", color: "white" }
+
+    ]
+    return (
+            <footer className=" flex w-[100%] justify-self-auto">
+                <div className="w-full h-[50px] bg-slate-300 flex items-center justify-start gap-5">
+                    <svg className="w-6 h-6 text-gray-600 ml-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 19">
+                        <path fillRule="evenodd" d="M8.842 18.083a8.8 8.8 0 0 1-8.65-8.948 8.841 8.841 0 0 1 8.8-8.652h.153a8.464 8.464 0 0 1 5.7 2.257l-2.193 2.038A5.27 5.27 0 0 0 9.09 3.4a5.882 5.882 0 0 0-.2 11.76h.124a5.091 5.091 0 0 0 5.248-4.057L14.3 11H9V8h8.34c.066.543.095 1.09.088 1.636-.086 5.053-3.463 8.449-8.4 8.449l-.186-.002Z" clipRule="evenodd" />
+                    </svg>
+                    <svg className="w-6 h-6 text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 17">
+                        <path fillRule="evenodd" d="M20 1.892a8.178 8.178 0 0 1-2.355.635 4.074 4.074 0 0 0 1.8-2.235 8.344 8.344 0 0 1-2.605.98A4.13 4.13 0 0 0 13.85 0a4.068 4.068 0 0 0-4.1 4.038 4 4 0 0 0 .105.919A11.705 11.705 0 0 1 1.4.734a4.006 4.006 0 0 0 1.268 5.392 4.165 4.165 0 0 1-1.859-.5v.05A4.057 4.057 0 0 0 4.1 9.635a4.19 4.19 0 0 1-1.856.07 4.108 4.108 0 0 0 3.831 2.807A8.36 8.36 0 0 1 0 14.184 11.732 11.732 0 0 0 6.291 16 11.502 11.502 0 0 0 17.964 4.5c0-.177 0-.35-.012-.523A8.143 8.143 0 0 0 20 1.892Z" clipRule="evenodd" />
+                    </svg>
+                    <svg className="w-6 h-6 text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 15 15">
+                        <path fillRule="evenodd" d="M7.979 5v1.586a3.5 3.5 0 0 1 3.082-1.574C14.3 5.012 15 7.03 15 9.655V15h-3v-4.738c0-1.13-.229-2.584-1.995-2.584-1.713 0-2.005 1.23-2.005 2.5V15H5.009V5h2.97ZM3 2.487a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" clipRule="evenodd" />
+                        <path d="M3 5.012H0V15h3V5.012Z" />
+                    </svg>
+                    <svg className="w-6 h-6 text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 14">
+                        <path fillRule="evenodd" d="M19.7 3.037a4.26 4.26 0 0 0-.789-1.964 2.84 2.84 0 0 0-1.984-.84c-2.767-.2-6.926-.2-6.926-.2s-4.157 0-6.928.2a2.836 2.836 0 0 0-1.983.84A4.225 4.225 0 0 0 .3 3.038a30.148 30.148 0 0 0-.2 3.206v1.5c.01 1.071.076 2.142.2 3.206.094.712.363 1.39.784 1.972.604.536 1.38.837 2.187.848 1.583.15 6.731.2 6.731.2s4.161 0 6.928-.2a2.844 2.844 0 0 0 1.985-.84 4.27 4.27 0 0 0 .787-1.965c.124-1.064.19-2.135.2-3.206V6.243a30.672 30.672 0 0 0-.202-3.206ZM8.008 9.59V3.97l5.4 2.819-5.4 2.8Z" clipRule="evenodd" />
+                    </svg>
+                </div>
+                <div className="w-[200px] flex justify-end bg-slate-300 pr-6">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" onClick={() => setShow(!show)} className="w-[30px] h-[30px] cursor-pointer md:hidden">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+                {show ? <Display options={options} /> : (null)}
+                <Label options={options} />
+            </div>
+            </footer>
+    )
 }
-
-export default Footer
