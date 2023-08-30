@@ -17,7 +17,12 @@ export default function Home() {
     const carousel = useSelector(store => store.cities.carousel)
     console.log(carousel)
     const dispatch = useDispatch()
-    
+    useEffect (()=>{
+        axios.get(apiUrl)
+            .then((response) => {
+                console.log(response);
+            })
+    },[])
 
     useEffect(
         () => {
